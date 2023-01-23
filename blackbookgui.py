@@ -1,8 +1,9 @@
 #imports
 from tkinter import *
-from PIL import ImageTk, Image
+from tkinter import PhotoImage
 from Standardfieldmod import inputwindow
 from viewfieldmod import viewwindow
+import os
 #end imports
 
 
@@ -13,6 +14,11 @@ def main():
     #window options
     window.geometry("808x600")
     window.config(bg="black")
+
+    #framework for logo, Koye when youre done making it youll have to install it here.
+    logo=PhotoImage(file="")
+    logospace=Label(image=logo)
+    logospace.grid(row=0, column=0)
 
     #seperates the text module "yourcontacthere" using a black border
     seperatorone=Frame(window, bg="#3d3d3d", width=618, height=60, bd=4, relief=SOLID)
@@ -31,11 +37,11 @@ def main():
     viewcontact.grid(row=3, column=2)
 
     #edit existing contacts with this code
-    editcontact=Button(window, text="edit selected contact", height=11, width=25, bd=3, relief=SOLID, bg="#3d3d3d", fg="white")
+    editcontact=Button(window, text="Edit selected contact", height=11, width=25, bd=3, relief=SOLID, bg="#3d3d3d", fg="white")
     editcontact.grid(row=4, column=2)
 
     #exit the program with this code
-    exitbutton=Button(window, text="exit", height=3, width=25, borderwidth=4, relief=SOLID, command=window.quit, bg="#3d3d3d", fg="white")
+    exitbutton=Button(window, text="Exit", height=3, width=25, borderwidth=4, relief=SOLID, command=window.quit, bg="#3d3d3d", fg="white")
     exitbutton.grid(row=1, column=2)
 
     #List

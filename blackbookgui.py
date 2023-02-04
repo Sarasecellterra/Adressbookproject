@@ -78,6 +78,7 @@ def main():
 
     def populatelist():
         contactlist.delete(0, END) # Clear the listbox
+        storagecontents.sort()
         for filename in storagecontents:
             contactlist.insert(END, filename)
 

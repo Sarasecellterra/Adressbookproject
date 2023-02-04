@@ -1,5 +1,7 @@
 #imports
 from tkinter import *
+import shutil
+import os
 #end imports
 
 def inputwindow():
@@ -11,6 +13,28 @@ def inputwindow():
 
     #window size
     outlinewindow2.geometry("482x150")
+
+    #this will take the text from the entry widgets and writes it to a .txt file the "print" is used for debugging to confirm the code runs when told to
+    def retrieve_text():
+        text1 = E1.get()
+        with open(text1+".txt", "w") as file:
+            print(text1, file=file)
+            text2 = E2.get()
+            print(text2, file=file)
+            text3 = E3.get()
+            print(text3, file=file)
+            text4 = E4.get()
+            print(text4, file=file)
+            text5 = E5.get()
+            print(text5, file=file)
+            print("file saved")
+            #This then closes the file and moves it into the storage folder, of which the gui program calls from and inserts into the list.
+            file.close()
+            program_dir = os.path.dirname(os.path.abspath(__file__))
+            source_path = os.path.join(program_dir, text1+".txt")
+            destination_path = os.path.join(program_dir, "Storage", text1+".txt")
+
+            shutil.move(source_path, destination_path)
 
     #frames for aesthetics:
     #first name:
@@ -60,13 +84,12 @@ def inputwindow():
     E5.grid(row=4, column=1)
 
     #Save contact button:
-    commitchange=Button(outlinewindow2, height=9, width=9, bd=4, relief=SOLID, text="Save contact", bg="#3d3d3d", fg="white")
+    commitchange=Button(outlinewindow2, height=9, width=9, bd=4, relief=SOLID, text="Save contact", bg="#3d3d3d", fg="white", command=retrieve_text)
     commitchange.grid(row=0, column=4, rowspan=100)#rowspan is set to arbitrarily huge number to maintain formatting, do not touch or it will destroy the format
     #exit button:
     exitbutton=Button(outlinewindow2, height=9, width=9, bd=4, relief=SOLID, text="Exit", command=outlinewindow2.destroy, bg="#3d3d3d", fg="white")
     exitbutton.grid(row=0, column=5, rowspan=100)#rowspan is set to arbtitrarily huge number to maintain formatting
-
-
+    
     #end script
     outlinewindow2.mainloop()
 

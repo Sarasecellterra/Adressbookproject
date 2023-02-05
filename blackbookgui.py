@@ -5,7 +5,6 @@ from Standardfieldmod import inputwindow
 from viewfieldmod import viewwindow
 from Editfield import editfunctionality
 import os
-import sys
 #end imports
 #updates the contactlist every 3 seconds to ensure it remains up to date
 
@@ -69,6 +68,7 @@ def main():
     deletebutton=Button(window, text="Delete contact", height=6, width=25, borderwidth=4, relief= SOLID, command=deleteselected, bg="#3d3d3d", fg="white")
     deletebutton.grid(row=5, column=2)
 
+    #edit a contact with this code
     editbutton=Button(window, text="Edit contact", height=6, width=25, borderwidth=4, relief=SOLID, command=editfunctionality, bg="#3d3d3d", fg="white")
     editbutton.grid(row=6, column=2)
 

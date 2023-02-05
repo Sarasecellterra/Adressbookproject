@@ -9,7 +9,7 @@ def inputwindow():
     outlinewindow2=Tk()
 
     #change to true on release, false when debugging.
-    outlinewindow2.overrideredirect(False)
+    outlinewindow2.overrideredirect(True)
 
     #window size
     outlinewindow2.geometry("482x150")
